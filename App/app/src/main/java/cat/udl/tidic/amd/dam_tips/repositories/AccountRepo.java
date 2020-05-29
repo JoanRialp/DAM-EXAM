@@ -2,6 +2,7 @@ package cat.udl.tidic.amd.dam_tips.repositories;
 
 import android.util.Log;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.MutableLiveData;
 
 import com.google.gson.JsonObject;
@@ -11,12 +12,11 @@ import java.io.IOException;
 import cat.udl.tidic.amd.dam_tips.dao.AccountDAO;
 import cat.udl.tidic.amd.dam_tips.dao.AccountDAOImpl;
 import cat.udl.tidic.amd.dam_tips.preferences.PreferencesProvider;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AccountRepo {
+public class AccountRepo extends AppCompatActivity {
 
     private String TAG = "AccountRepo";
 
@@ -30,8 +30,6 @@ public class AccountRepo {
 
 
     public void createTokenUser(){
-
-
         accountDAO.createTokenUser().enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
@@ -77,6 +75,8 @@ public class AccountRepo {
     public void deleteTokenUser(){
         String token = PreferencesProvider.providePreferences().getString("token","");
         Log.d(TAG,  "deleteTokenUser() -> eliminarem aquest token:  " + token);
+
+        //PreferencesProvider.providePreferences().edit().remove("token").apply();
         JsonObject body = new JsonObject();
         body.addProperty("token", token);
         accountDAO.deleteTokenUser(body).enqueue(new Callback<Void>() {

@@ -46,4 +46,7 @@ application.add_route("/trivial/question/list", trivial_events.ResourceGetQuesti
 application.add_route("/trivial/question", trivial_events.ResourceGetRandomQuestion())
 application.add_route("/trivial/question/add", trivial_events.ResourceAddQuestion())
 
+# Tasca 5
+application.add_route("/question/{question_id}/answer/{question_answer_id}/check", trivial_events.ResourceCheckAnswer())
+
 application.add_sink(handle_404, "")

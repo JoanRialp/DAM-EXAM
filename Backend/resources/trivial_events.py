@@ -96,3 +96,19 @@ class ResourceAddQuestion(DAMCoreResource):
             raise falcon.HTTPBadRequest(description=messages.parameters_invalid)
 
         resp.status = falcon.HTTP_200
+
+
+@falcon.before(requires_auth)
+class ResourceCheckAnswer(DAMCoreResource):
+    def on_get(self, req, resp, *args, **kwargs):
+        super(ResourceCheckAnswer, self).on_get(req, resp, *args, **kwargs)
+
+        aux_question = kwargs["question_id"]
+        aux_answer = kwargs["question_answer_id"]
+
+        aux_assiation = self.db_session.query(AnswerQuestionAssiation.is_correct).filter(aux_question == AnswerQuestionAssiation.id_question, aux_answer == AnswerQuestionAssiation.id_answer).all()
+
+        response = aux_assiation
+
+        resp.media = response
+        resp.status = falcon.HTTP_200

@@ -22,7 +22,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="156dp"
-        app:currentProgress="40"
+        app:currentProgress="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.612"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,11 +36,12 @@
         app:totalProgress="100" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/game_categoria"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
         android:text="Categoria X"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.04"
@@ -52,7 +53,7 @@
         android:layout_width="90dp"
         android:layout_height="75dp"
         app:barWidth="17dp"
-        app:countText="931,199"
+        app:countText="0"
         app:countTextColor="@android:color/black"
         app:countTextSize="20sp"
         app:defTextColor="@android:color/black"
@@ -61,10 +62,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:marginBtwText="15dp"
-        app:percentage="90"
+        app:percentage="0"
         app:progressColor="#64b324" />
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="393dp"
         android:layout_height="76dp"
         android:orientation="horizontal"
@@ -98,5 +100,30 @@
             tools:layout_editor_absoluteY="157dp" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/game_pregunta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="20dp"
+        android:text="TextView"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/stepProgressView2" />
+
+    <TextView
+        android:id="@+id/games_guanyar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:textColor="@color/red"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
